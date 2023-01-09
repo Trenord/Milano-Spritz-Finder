@@ -44,3 +44,4 @@ map.addLayer(layer);
 var markerpop = L.marker([45.46423, 9.23976]);
 markerpop.bindPopup('5 euro').openPopup();
 markerpop.addTo(map);
+

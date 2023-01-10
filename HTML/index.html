@@ -11,27 +11,26 @@
     <div id="map"></div>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="script.js"></script>
-<script>
-    
+
+
+<form id="form" action="submit.php" method="post">
+
+<script>    
    var theMarker = {};
 
   map.on('click',function(e){
     lat = e.latlng.lat;
     lon = e.latlng.lng;
+
+var invio = new XMLHttpRequest();
+invio.open("POST", "invio.php", true);
+invio.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+invio.send("lat=" + lat + '&lon=' + lon );
+
+
     var nomepuntointeresse = window.prompt("nome punto di interesse")
-    
-   
-   
-  //    if (nomepuntointeresse == "undefined") {
-//         map.removeLayer(theMarker);
- //   };
-
-    
-     theMarker = L.marker([lat,lon]).bindPopup(nomepuntointeresse).addTo(map);  
+   theMarker = L.marker([lat,lon]).bindPopup(nomepuntointeresse).addTo(map);  
 });
-
-
-
 </script>
    
 

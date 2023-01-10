@@ -13,7 +13,6 @@ if (!navigator.geolocation) {
 }
 
 var marker, circle;
-
 function getPosition(position) {
     var lat = position.coords.latitude
     var long = position.coords.longitude
@@ -33,14 +32,14 @@ function getPosition(position) {
     map.fitBounds(featureGroup.getBounds())
 
 }
-////////////////
+
 fetch('ricevi.php')
   .then(response => response.json())
   .then(data => {
 
     console.log (data);
   })
-////////////// 
+
 
 
 

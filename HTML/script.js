@@ -33,9 +33,30 @@ function getPosition(position) {
     map.fitBounds(featureGroup.getBounds())
 
 }
+////////////////
+fetch('ricevi.php')
+  .then(response => response.json())
+  .then(data => {
+
+    console.log (data);
+  })
+////////////// 
+
+
+
+/*
+var posizioni = [[1, 2], [3, 4]];
+
+for (let i = 0; i < posizioni.length; i ++) {
+    let pos = posizioni[i];
+    let marker = L.marker(pos);
+    marker.addTo(map);
+}
+*/
 
 var idroscalo = L.marker([45.46423, 9.28976]);
 idroscalo.addTo(map);
+
 var acaso = L.marker([45.46423, 9.30976]);
 acaso.addTo(map);
 

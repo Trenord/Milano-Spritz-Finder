@@ -3,7 +3,6 @@ var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
 osm.addTo(map);
-
 if (!navigator.geolocation) {
     console.log("Your browser doesn't support geolocation feature!")
 } else {
@@ -33,35 +32,32 @@ function getPosition(position) {
 
 }
 
+
+
 fetch('ricevi.php')
   .then(response => response.json())
   .then(data => {
-
-    console.log (data);
+    addMarkers(data);
+    console.log(data);
   })
 
 
+function addMarkers(locali) {
+    for(let i = 0; i < locali.length; i++) {
+        let locale = locali[i];
+        createMarkerFromLocale(locale);
+    }
+}
 
 
-/*
-var posizioni = [[1, 2], [3, 4]];
-
-for (let i = 0; i < posizioni.length; i ++) {
-    let pos = posizioni[i];
-    let marker = L.marker(pos);
+function createMarkerFromLocale(locale) {
+    let marker = L.marker(locale);
+    marker.bindPopup(locale[2]).openPopup();
     marker.addTo(map);
 }
-*/
 
-var idroscalo = L.marker([45.46423, 9.28976]);
-idroscalo.addTo(map);
 
-var acaso = L.marker([45.46423, 9.30976]);
-acaso.addTo(map);
 
-var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-map.addLayer(layer);
-var markerpop = L.marker([45.46423, 9.23976]);
-markerpop.bindPopup('5 euro').openPopup();
-markerpop.addTo(map);
+
+
 

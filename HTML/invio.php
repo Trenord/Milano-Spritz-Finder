@@ -1,8 +1,5 @@
 <?php
-    // Retrieve form data
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    
+
     // Connect to the database
     $host = "127.0.0.1";
     $username = "";
@@ -15,7 +12,8 @@
     }
     $lat = $_POST['lat'];
     $lon = $_POST['lon'];
+    $price = $_POST['price'];
 
-    $query = "INSERT INTO users (name, email) VALUES ('$lat', '$lon')";
+    $query = "INSERT INTO users (Latitudine, Longitudine, Price) VALUES ('$lat', '$lon', '$price')";
     mysqli_query($conn, $query);
 ?>

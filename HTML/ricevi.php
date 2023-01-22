@@ -3,7 +3,7 @@
     $servername = "127.0.0.1";
     $username = "";
     $password = "";
-    $dbname = "test";
+    $dbname = "spritz";
 
     // Crea la connessione
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -12,8 +12,8 @@
         die("Connection failed: " . $conn->connect_error);
     } 
 
-    // Sql query per recuperare i dati dalla tabella users
-    $sql = "SELECT Latitudine, Longitudine, Price FROM users";
+    // Sql query per recuperare i dati dalla tabella mappa
+    $sql = "SELECT Latitudine, Longitudine, Price FROM mappa";
     $result = $conn->query($sql);
  
     if ($result->num_rows > 0) { 

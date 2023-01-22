@@ -9,7 +9,7 @@ CREATE TABLE `locali`
  `ip_creazione`  varchar(15) NOT NULL ,
  `data`          datetime NOT NULL ,
 
-PRIMARY KEY (`id`)
+PRIMARY KEY (`id_locale`)
 );
 
 CREATE TABLE `recensioni`
